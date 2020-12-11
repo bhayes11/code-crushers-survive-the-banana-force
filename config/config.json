@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+update-models,
+    "password": "Buffalobills17.",
+
     "password": "Raina10!",
+main,
     "database": "questions_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
