@@ -1,18 +1,20 @@
 module.exports = function (sequelize, DataTypes) {
-  const Game = sequelize.define("Game", {
-    name: DataTypes.STRING,
-    category: DataTypes.STRING,
-    maxNumPlayers: DataTypes.INTEGER,
-    minNumPlayers: DataTypes.INTEGER,
+  const Question = sequelize.define("Question", {
+    question: DataTypes.TEXT,
+    optionA: DataTypes.TEXT,
+    optionB: DataTypes.TEXT,
+    optionC: DataTypes.TEXT,
+    optionD: DataTypes.TEXT,
+    answer: DataTypes.TEXT,
     // TODO: Time range
   });
 
-  Game.associate = function (models) {
-    Game.belongsToMany(models.Player, {
-      through: "PlayerGames",
-      foreignKey: "gameId",
-    });
-  };
+  // Question.associate = function (models) {
+  //   Question.belongsToMany(models.Character, {
+  //     through: "PlayerGames",
+  //     foreignKey: "gameId",
+  //   });
+  // };
 
-  return Game;
+  return Question;
 };
