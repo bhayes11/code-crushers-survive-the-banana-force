@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jonathanjwatson/project-2-starter.git"
+    "url": "git+https://github.com/bhayes11/project-two.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jonathanjwatson/project-2-starter/issues"
+    "url": "https://github.com/bhayes11/project-two"
   },
-  "homepage": "https://github.com/jonathanjwatson/project-2-starter#readme",
+  "homepage": "https://github.com/bhayes11/project-two#readme",
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.3",
     "express": "^4.17.1",
