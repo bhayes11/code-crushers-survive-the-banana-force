@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Hayes11@",
+    "password": "Hayes11@.",
     "database": "questions_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -14,7 +14,7 @@
     "dialect": "mysql"
   },
   "production": {
-    "use_env_variable": "JAWSDB_URL",
+    "use_env_variable": "mysql://zgw8e7fgqnxfc5wz:iptakm7nnwywzj6q@l7cup2om0gngra77.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/rxbccy0trnen5bu3",
     "dialect": "mysql"
   }
 }
