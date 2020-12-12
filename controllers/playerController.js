@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-console.log();
+
 const db = require("../models");
 
 router.get("/players", (req, res) => {
