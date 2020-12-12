@@ -1,0 +1,12 @@
+body, html{
+    height: 100%;
+}
+
+#button-section{
+    height:100%;
+    width: 100%;
+    background-image: url("../image.png");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
