@@ -3,13 +3,22 @@ const router = express.Router();
 
 const db = require("../models");
 
-router.get("/players", (req, res) => {
-  db.Player.findAll({
-    include: db.Game,
+router.get("/questions", (req, res) => {
+  db.Question.findAll({
+    attributes: [
+      "id",
+      "question",
+      "optionA",
+      "optionB",
+      "optionC",
+      "optionD",
+      "answer",
+    ],
   })
-    .then((allPlayers) => {
-      console.log(allPlayers);
-      res.render("players", { players: allPlayers });
+    .then((allQuestions) => {
+      console.log(allQuestions);
+      res.render("admin", { questions: allQuestions });
+      // res.json(allQuestions);
     })
     .catch((err) => {
       console.log(err);
@@ -37,8 +46,8 @@ router.get("/players/:id/edit", (req, res) => {
   });
 });
 
-router.post("/api/players", (req, res) => {
-  db.Player.create(req.body)
+router.post("/api/questions", (req, res) => {
+  db.Question.create(req.body)
     .then((newPlayer) => {
       res.json(newPlayer);
     })
