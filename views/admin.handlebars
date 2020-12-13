@@ -1,18 +1,35 @@
-<h1>Admin View</h1>
+<section class="hero is-warning has-text-centered is-fullwidth">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Code Crushers: Admin View
+            </h1>
+        </div>
+    </div>
+</section>
+<div class="container" id="adminWindow"> 
+    <div class="columns is-mobile" id="content">
+        <div class="column is-narrow">
+          <ul>
+            {{#each questions}}
+            <li>
+              <p>
+                {{this.id}}. {{this.question}} 
+                <li>A. {{this.optionA}}</li>
+                <li>B. {{this.optionB}}</li>
+                <li>C. {{this.optionC}}</li>
+                <li>D. {{this.optionD}}</li>
+                <li>Correct Answer: {{this.answer}}</li>
 
-<ul>
-  {{#each questions}}
-  <li>
-    <p>
-      {{this.id}}. {{this.question}} 
-      <li>A. {{this.optionA}}</li>
-      <li>B. {{this.optionB}}</li>
-      <li>C. {{this.optionC}}</li>
-      <li>D. {{this.optionD}}</li>
-      <li>Correct Answer: {{this.answer}}</li>
+                <button questionid="{{this.id}}" class="delplan">Delete Question!</button>
+              </p>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+        <div class="column">
+          <h1>Test</h1>
+        </div>
+    </div>
 
-      <button questionid="{{this.id}}" class="delplan">Delete Plan!</button>
-    </p>
-  </li>
-  {{/each}}
-</ul>
+</div>
