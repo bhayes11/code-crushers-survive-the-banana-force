@@ -1,0 +1,18 @@
+<h1>Admin View</h1>
+
+<ul>
+  {{#each questions}}
+  <li>
+    <p>
+      {{this.id}}. {{this.question}} 
+      <li>A. {{this.optionA}}</li>
+      <li>B. {{this.optionB}}</li>
+      <li>C. {{this.optionC}}</li>
+      <li>D. {{this.optionD}}</li>
+      <li>Correct Answer: {{this.answer}}</li>
+
+      <button questionid="{{this.id}}" class="delplan">Delete Plan!</button>
+    </p>
+  </li>
+  {{/each}}
+</ul>
