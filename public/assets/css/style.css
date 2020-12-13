@@ -12,7 +12,7 @@ section{
 }
 
 /* Added */
-.columns{
+#content{
     height: 75vh;
 }
 
