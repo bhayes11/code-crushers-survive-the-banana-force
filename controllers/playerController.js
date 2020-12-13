@@ -70,8 +70,8 @@ router.put("/api/players/:id", (req, res) => {
     });
 });
 
-router.delete("/api/players/:id", (req, res) => {
-  db.Player.destroy({
+router.delete("/api/questions/:id", (req, res) => {
+  db.Question.destroy({
     where: {
       id: req.params.id,
     },
