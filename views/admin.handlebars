@@ -22,7 +22,7 @@
                 <li>D. {{this.optionD}}</li>
                 <li>Correct Answer: {{this.answer}}</li>
 
-                <button questionid="{{this.id}}" class="delplan">Delete Question!</button>
+                <button data-id="{{this.id}}" class="delplan">Delete Question!</button>
               </p>
             </li>
             {{/each}}
@@ -39,3 +39,16 @@
     </div>
 
 </div>
+<script>
+    $(document).ready(function () {
+        $(".delplan").on("click", function () {
+            const id = $(this).data("id");
+            $.ajax({
+                method: "DELETE",
+                url: `/api/questions/${id}`
+            }).then(response => {
+                window.location.reload();
+            })
+        })
+    })
+</script>
