@@ -8,14 +8,14 @@
         </div>
     </div>
 </section>
-<div class="container" id="adminWindow"> 
+<div class="container" id="adminWindow">
     <div class="columns is-mobile" id="content">
         <div class="column is-narrow">
-          <ul>
-            {{#each questions}}
-            <li>
-              <p>
-                {{this.id}}. {{this.question}} 
+            <ul>
+                {{#each questions}}
+                <li>
+                    <p>
+                        {{this.id}}. {{this.question}}
                 <li>A. {{this.optionA}}</li>
                 <li>B. {{this.optionB}}</li>
                 <li>C. {{this.optionC}}</li>
@@ -23,18 +23,18 @@
                 <li>Correct Answer: {{this.answer}}</li>
 
                 <button data-id="{{this.id}}" class="delplan">Delete Question!</button>
-              </p>
-            </li>
-            {{/each}}
-          </ul>
+                </p>
+                </li>
+                {{/each}}
+            </ul>
         </div>
         <div class="column">
-          <button id="create" >Create Question!</button>
-          <button id="update">Update Question!</button>
-          {{!-- if if else statement here, partial appears when btn is clicked --}}
-          {{> createQuestion}}
-          <hr>
-          {{> updateQuestion}}
+            <button id="create">Create Question!</button>
+            <button id="update">Update Question!</button>
+            {{!-- if if else statement here, partial appears when btn is clicked --}}
+            {{> createQuestion}}
+            <hr>
+            {{> updateQuestion}}
         </div>
     </div>
 
@@ -49,6 +49,14 @@
             }).then(response => {
                 window.location.reload();
             })
+        })
+        $("#create").on("click", function () {
+            $("#createQuestion").removeClass("is-hidden");
+            $("#updateQuestion").addClass("is-hidden");
+        })
+        $("#update").on("click", function () {
+            $("#updateQuestion").removeClass("is-hidden");
+            $("#createQuestion").addClass("is-hidden");
         })
     })
 </script>
