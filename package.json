@@ -7,16 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bhayes11/project-two.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/bhayes11/project-two"
-  },
   "homepage": "https://github.com/bhayes11/project-two#readme",
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.3",
