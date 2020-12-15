@@ -25,45 +25,51 @@ router.get("/questions", (req, res) => {
     });
 });
 
-router.get("/player/new", (req, res) => {
-  res.render("new-player");
-});
+//   res.render("new-player");router.get("/player/new", (req, res) => {
+// });
 
-router.get("/players/:id/edit", (req, res) => {
-  db.Player.findOne({
+router.get("/questions/:id/edit", (req, res) => {
+  db.Question.findOne({
     where: {
       id: req.params.id,
     },
-  }).then((foundPlayer) => {
-    console.log(foundPlayer.email);
-    res.render("edit-player", {
-      email: foundPlayer.email,
-      password: foundPlayer.password,
-      firstName: foundPlayer.firstName,
-      lastName: foundPlayer.lastName,
-      id: foundPlayer.id,
-    });
-  });
-});
-
-router.post("/api/questions", (req, res) => {
-  db.Question.create(req.body)
-    .then((newPlayer) => {
-      res.json(newPlayer);
+  })
+    .then((foundQuestion) => {
+      console.log(foundQuestion.question);
+      res.render("updateQuestion", {
+        question: foundQuestion.question,
+        optionA: foundQuestion.optionA,
+        optionB: foundQuestion.optionB,
+        optionC: foundQuestion.optionC,
+        optionD: foundQuestion.optionD,
+        answer: foundQuestion.answer,
+        id: foundQuestion.id,
+      });
+      console.log(foundQuestion.optionD);
     })
     .catch((err) => {
       console.log(err);
     });
 });
 
-router.put("/api/players/:id", (req, res) => {
-  db.Player.update(req.body, {
+router.post("/api/questions", (req, res) => {
+  db.Question.create(req.body)
+    .then((newQuestion) => {
+      res.json(newQuestion);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+router.put("/api/questions/:id", (req, res) => {
+  db.Question.update(req.body, {
     where: {
       id: req.params.id,
     },
   })
-    .then((updatedPlayer) => {
-      res.json(updatedPlayer);
+    .then((updatedQuestion) => {
+      res.json(updatedQuestion);
     })
     .catch((err) => {
       console.log(err);
