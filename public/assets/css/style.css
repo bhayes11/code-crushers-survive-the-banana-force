@@ -1,21 +1,22 @@
-body, html{
-    height: 100%;
-    width: 100%;
-    background-image: url("../image.png");
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+body,
+html {
+  height: 100%;
+  width: 100%;
+  background-image: url("../image.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-section{
-    width: 100%;
-}
-
-/* Added */
-#content{
-    height: 75vh;
+section {
+  width: 100%;
 }
 
-.color-one{
-    color: rgb(224, 155, 67);
+/* need to remove this from the css so that the background works as designed */
+.cch {
+  height: 75vh;
+}
+
+.color-one {
+  color: rgb(224, 155, 67);
 }

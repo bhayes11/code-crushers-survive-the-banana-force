@@ -3,6 +3,10 @@ const router = express.Router();
 
 const db = require("../models");
 
+router.get("/battle", (req, res) => {
+  res.render("battle");
+});
+
 router.get("/questions", (req, res) => {
   db.Question.findAll({
     attributes: [
