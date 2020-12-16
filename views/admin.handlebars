@@ -12,40 +12,43 @@
     <div class="tile is-parent">
         {{!-- DKB: added color to the tile --}}
         <article class="tile is-child notification has-background-grey-lighter">
-    <div class="columns is-mobile" id="content">
-        {{!-- DKB: Added the two fiths thing for width and cch2 for height. looks like content isn't a good id/class label for bulma --}}
-        <div class="column is-two-fifths cch2">
-            <ul>
-                {{#each questions}}
-                <li>
-                    <p>
-                        {{this.id}}. {{this.question}}
-                <li>A. {{this.optionA}}</li>
-                <li>B. {{this.optionB}}</li>
-                <li>C. {{this.optionC}}</li>
-                <li>D. {{this.optionD}}</li>
-                <li>Correct Answer: {{this.answer}}</li>
+            <div class="columns is-mobile" id="content">
+                {{!-- DKB: Added the two fiths thing for width and cch2 for height. looks like content isn't a good
+                id/class label for bulma --}}
+                <div class="column is-two-fifths cch2">
+                    <ul>
+                        {{#each questions}}
+                        <li>
+                            <p>
+                                {{this.id}}. {{this.question}}
+                        <li>A. {{this.optionA}}</li>
+                        <li>B. {{this.optionB}}</li>
+                        <li>C. {{this.optionC}}</li>
+                        <li>D. {{this.optionD}}</li>
+                        <li>Correct Answer: {{this.answer}}</li>
 
-                <button data-id="{{this.id}}" class="delplan button is-danger is-rounded is-small">Delete Question!</button>
-                {{!-- Temporary <a href="/questions/{{this.id}} /edit"></a>  --}}
-               <button data-id="{{this.id}}" class="banana button is-warning is-rounded is-small">Update Question!</button>
-               
-                </p>
-                </li>
-                {{/each}}
-            </ul>
-        </div>
-        <div class="column">
-            <button id="create" class="button is-warning is-rounded is-medium">Create Question!</button>
-            {{!-- if if else statement here, partial appears when btn is clicked --}}
-            
-            {{> createQuestion}}
-            
-            {{> updateQuestion}}
-        </div>
+                        <button data-id="{{this.id}}" class="delplan button is-danger is-rounded is-small">Delete
+                            Question!</button>
+                        {{!-- Temporary <a href="/questions/{{this.id}} /edit"></a> --}}
+                        <button data-id="{{this.id}}" class="banana button is-warning is-rounded is-small">Update
+                            Question!</button>
+
+                        </p>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="column">
+                    <button id="create" class="button is-warning is-rounded is-medium">Create Question!</button>
+                    {{!-- if if else statement here, partial appears when btn is clicked --}}
+
+                    {{> createQuestion}}
+
+                    {{> updateQuestion}}
+                </div>
+            </div>
+        </article>
     </div>
-    </article>
-</div>
 </div>
 <script>
     $(document).ready(function () {
@@ -67,20 +70,19 @@
             $("#createQuestion").addClass("is-hidden");
             $("#updateQuestion").removeClass("is-hidden");
             $("#updateQuestion").attr("data-id", data)
-            const queryURL = "questions/" + data +"/edit"
-            alert(data);
+            const queryURL = "questions/" + data + "/edit"
             console.log(queryURL);
             $.ajax({
-                url:queryURL,
+                url: queryURL,
                 method: "GET",
-            }).then(function(results){
+            }).then(function (results) {
                 console.log(results);
-                $("#editQuestion").attr("value",results.question);
-                $("#updateOptionA").attr("value",results.optionA);
-                $("#updateOptionB").attr("value",results.optionB);
-                $("#updateOptionC").attr("value",results.optionC);
-                $("#updateOptionD").attr("value",results.optionD);
-                $("#updateAnswer").attr("value",results.answer);
+                $("#editQuestion").attr("value", results.question);
+                $("#updateOptionA").attr("value", results.optionA);
+                $("#updateOptionB").attr("value", results.optionB);
+                $("#updateOptionC").attr("value", results.optionC);
+                $("#updateOptionD").attr("value", results.optionD);
+                $("#updateAnswer").attr("value", results.answer);
             })
         });
     });
