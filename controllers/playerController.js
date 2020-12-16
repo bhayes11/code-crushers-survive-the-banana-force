@@ -25,8 +25,10 @@ router.get("/questions", (req, res) => {
     });
 });
 
-//   res.render("new-player");router.get("/player/new", (req, res) => {
-// });
+
+router.get("/player/new", (req, res) => {
+  res.render("new-player");
+});
 
 router.get("/questions/:id/edit", (req, res) => {
   db.Question.findOne({
@@ -36,7 +38,7 @@ router.get("/questions/:id/edit", (req, res) => {
   })
     .then((foundQuestion) => {
       console.log(foundQuestion.question);
-      res.render("updateQuestion", {
+      res.json({
         question: foundQuestion.question,
         optionA: foundQuestion.optionA,
         optionB: foundQuestion.optionB,
@@ -45,7 +47,7 @@ router.get("/questions/:id/edit", (req, res) => {
         answer: foundQuestion.answer,
         id: foundQuestion.id,
       });
-      console.log(foundQuestion.optionD);
+      console.log(foundQuestion.answer);
     })
     .catch((err) => {
       console.log(err);
@@ -54,8 +56,8 @@ router.get("/questions/:id/edit", (req, res) => {
 
 router.post("/api/questions", (req, res) => {
   db.Question.create(req.body)
-    .then((newQuestion) => {
-      res.json(newQuestion);
+    .then((newPlayer) => {
+      res.json(newPlayer);
     })
     .catch((err) => {
       console.log(err);
