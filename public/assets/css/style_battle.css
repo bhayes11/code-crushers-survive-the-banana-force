@@ -1,0 +1,17 @@
+.question {
+  height: 200px;
+}
+
+.placeholder {
+  height: 100px;
+}
+
+.minion {
+  height: 300px;
+}
+
+.is-horizontal-center {
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}

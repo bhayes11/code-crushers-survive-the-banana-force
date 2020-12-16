@@ -9,8 +9,12 @@
     </div>
 </section>
 <div class="container" id="adminWindow">
+    <div class="tile is-parent">
+        {{!-- DKB: added color to the tile --}}
+        <article class="tile is-child notification has-background-grey-lighter">
     <div class="columns is-mobile" id="content">
-        <div class="column is-narrow">
+        {{!-- DKB: Added the two fiths thing for width and cch2 for height. looks like content isn't a good id/class label for bulma --}}
+        <div class="column is-two-fifths cch2">
             <ul>
                 {{#each questions}}
                 <li>
@@ -40,7 +44,8 @@
             {{> updateQuestion}}
         </div>
     </div>
-
+    </article>
+</div>
 </div>
 <script>
     $(document).ready(function () {

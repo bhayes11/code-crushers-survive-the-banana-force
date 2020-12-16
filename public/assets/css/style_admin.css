@@ -1,9 +1,14 @@
 /* bulma framework, bkground needs to fit the questions */
-#adminWindow{
+/* #adminWindow{
     padding-top: 10px;
     padding-left: 20px;
     margin-top: 10px;
     height:100vh;
     width: 100%;
     background-color: rgb(231, 231, 231);
+} */
+
+/* added this css to word-wrap the questions */
+.cch2 {
+  word-break: break-word;
 }
