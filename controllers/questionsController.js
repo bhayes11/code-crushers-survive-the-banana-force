@@ -25,11 +25,6 @@ router.get("/questions", (req, res) => {
     });
 });
 
-
-router.get("/player/new", (req, res) => {
-  res.render("new-player");
-});
-
 router.get("/questions/:id/edit", (req, res) => {
   db.Question.findOne({
     where: {
