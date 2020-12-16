@@ -1,49 +1,51 @@
-<form id="updateQuestion" class="is-hidden">
+
+<form id="updateQuestion" class="is-hidden" data-id="{{id}}">
+  <hr>
   <div class="field">
     <label class="label">Question</label>
     <div class="control">
-      <textarea class="textarea" id="question"></textarea>
+     <input class="input is-warning" type="text" id="editQuestion" value="{{question}}">{{question}}</input>
     </div>
   </div>
 
   <div class="field">
     <label class="label">Option A</label>
     <div class="control">
-      <textarea class="textarea" id="optionA"></textarea>
+      <input class="input is-warning" type="text" id="updateOptionA" value="{{optionA}}">{{optionA}}</input>
     </div>
   </div>
 
   <div class="field">
     <label class="label">Option B</label>
     <div class="control">
-      <textarea class="textarea" id="optionB"></textarea>
+      <input class="input is-warning" type="text" id="updateOptionB" value="{{optionB}}">{{optionB}}</input>
     </div>
   </div>
 
   <div class="field">
     <label class="label">Option C</label>
     <div class="control">
-      <textarea class="textarea" id="optionC"></textarea>
+      <input class="input is-warning" type="text" id="updateOptionC" value="{{optionC}}">{{optionC}}</input>
     </div>
   </div>
 
   <div class="field">
     <label class="label">Option D</label>
     <div class="control">
-      <textarea class="textarea" value="{{optionD}}" id="optionD"></textarea>
+      <input class="input is-warning" type="text" value="{{optionD}}" id="updateOptionD">{{optionD}}</input>
     </div>
   </div>
 
   <div class="field">
     <label class="label">Answer</label>
     <div class="control">
-      <textarea class="textarea" id="answer"></textarea>
+      <input class="input is-warning" type="text" id="updateAnswer" value="{{answer}}">{{answer}}</input>
     </div>
   </div>
 
   <div class="field is-grouped">
     <div class="control">
-      <button class="button is-link">Submit</button>
+      <button class="button is-warning is-rounded is-large">Submit</button>
     </div>
   </div>
 </form>
