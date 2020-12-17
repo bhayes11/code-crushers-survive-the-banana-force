@@ -3,6 +3,8 @@ $(document).ready(function () {
   const answerChoices = $("#answerChoices");
   const queryURLQuestions = "/battle/questions";
   const queryURLCharacters = "/battle/characters";
+  
+  
   let questionIndex = 0;
   let answerValidation;
   let questionArray = [];
@@ -10,6 +12,7 @@ $(document).ready(function () {
   let qaArray = {};
   const charImageArray = ["/assets/minion_armor.jpg","/assets/minion_no_armor.jpg","/assets/minion_armor.jpg","/assets/minion_no_armor.jpg","/assets/minion_armor.jpg","/assets/minion_armor.jpg"]
 
+  //Character Functions
   function populateCharactersArray(){
     $.ajax({
         url: queryURLCharacters,
@@ -20,17 +23,16 @@ $(document).ready(function () {
         async: false,
       });
     };
-  populateCharactersArray();
-  console.log(charImageArray);
-  mergeImageNames();
   
-  console.log(charactersArray)
+  
   function mergeImageNames(){
     for (var i=0; i<charactersArray.length;i++){
     charactersArray[i].imgSrc = charImageArray[i];
     };
   };
-  
+
+//Question Functions
+  //Populate the Question Array in order to loop questions
   function populateQuestionArray() {
     $.ajax({
       url: queryURLQuestions,
@@ -41,9 +43,8 @@ $(document).ready(function () {
       async: false,
     });
   }
-  populateQuestionArray();
-  console.log(questionArray);
-  
+
+//Array that consolidates answer choices to an array
   function updateQaARRAY() {
     qaArray = {
       question: questionArray[questionIndex].question,
@@ -55,9 +56,9 @@ $(document).ready(function () {
       ],
       answer: questionArray[questionIndex].answer,
     };
-  }
-  console.log(qaArray);
+  };
 
+//Populates questions and answer choices
   function populateQuestion(index) {
     questionSection.empty();
     answerChoices.empty();
@@ -76,6 +77,7 @@ $(document).ready(function () {
     }
   };
 
+//Shuffles the question array in order to randomize order of question
   function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
   
@@ -94,13 +96,8 @@ $(document).ready(function () {
   
     return array;
   };
-  shuffle(questionArray);
-  console.log(questionArray);
 
-
-
-  populateQuestion(questionIndex);
-  // console.log(questionArray);
+// Validates Answer Selection
   function checkAnswer(event) {
     let answerIndex = event.target.getAttribute("data-index");
     event.preventDefault();
@@ -123,6 +120,28 @@ $(document).ready(function () {
     questionIndex++;
     setTimeout(populateQuestion(questionIndex), 3000);
   }
+  
+  
+  populateCharactersArray();
+  console.log(charImageArray);
+  mergeImageNames();
+  console.log(charactersArray)
+  
+  populateQuestionArray();
+  console.log(questionArray);
+  
+  
+  console.log(qaArray);
+
+  
+  shuffle(questionArray);
+  console.log(questionArray);
+
+
+
+  populateQuestion(questionIndex);
+  // console.log(questionArray);
+  
 
   // Event Listener
   answerChoices.on("click", checkAnswer);
