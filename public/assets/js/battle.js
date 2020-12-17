@@ -224,6 +224,7 @@ $(document).ready(function () {
       console.log(answerValidation);
       opponent.health -= 50;
       if(opponent.health===0){
+        opponentProgressBar.removeClass("is-warning");
         opponentIndex ++;
         alert("You win this round");
           console.log(opponent.health);
