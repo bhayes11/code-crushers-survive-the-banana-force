@@ -1,15 +1,24 @@
 {{> navbar}}
-{{!-- <section class="hero is-warning has-text-centered is-fullwidth">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title">
-                Code Crushers: Survive The TA's
-            </h1>
-        </div>
-    </div>
-</section> --}}
+{{!-- Modal to start --}}
+<div id="modal" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">STARTING GAME!</p>
+    </header>
+    <section class="modal-card-body">
+      <!-- Content ... -->
+     GET READY!!!
+    </section>
+    <footer class="modal-card-foot">
+      <button id="startBttn" class="button is-success">Start</button>
+    </footer>
+  </div>
+</div>
+
+
 <div class="container" id="landing-section">
-    <div class="columns">
+    <div class="columns" id="qaSection">
         <div class="column">
             <div class="tile question notification has-background-grey-lighter">
                 <section id="questionSection" class="cch2">
@@ -22,19 +31,25 @@
         </div>
     </div>
     <div class="columns">
-        <div class="column">
+        {{!-- <div class="column">
             <p class="tile placeholder"></p>
-        </div>
+        </div> --}}
+        <div class="column is-flex is-horizontal-center is-multiline"><progress id="userProgressBar"
+                class="progress is-success is-large" value="100" max="100"></progress></div>
+
+        <div class="column is-flex is-horizontal-center is-multiline"></div>
+        <div class="column is-flex is-horizontal-center is-multiline"><progress id="opponentProgressBar" class="progress is-large"
+                value="25" max="100"></progress></div>
     </div>
     <div class="columns">
-        <div class="column is-flex is-horizontal-center">
-            <img src="/assets/minion_armor.jpg" class="minion" alt="raaarrrr" />
+        <div class="column is-flex is-horizontal-center is-multiline">
+            <img src="/assets/user.png" id="userImage" class="minion" alt="raaarrrr" />
         </div>
-        <div class="column is-flex is-horizontal-center ">
-            <img src="/assets/fight.gif" alt="raaarrrr" />
+        <div class="column is-flex is-horizontal-center is-multiline ">
+            <img id="animatedGif" src="" alt="" class="is-hidden" />
         </div>
-        <div class="column is-flex is-horizontal-center">
-            <img src="/assets/minion_no_armor.png" class="minion" alt="raaarrrr" />
+        <div class="column is-flex is-horizontal-center is-multiline" id="opponentSection" >
+            <img id="opponentImage" src="/assets/minion_no_armor.png" class="minion" alt="raaarrrr" />
         </div>
     </div>
 </div>
@@ -54,4 +69,5 @@
     <source src="/assets/StartMusic.mp3" autoplay="autoplay" type="audio/mp3">
     Your browser does not support the audio element.
 </audio>
+
 <script type="text/javascript" src="/assets/js/battle.js"></script>
