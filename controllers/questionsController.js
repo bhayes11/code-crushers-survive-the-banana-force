@@ -29,6 +29,42 @@ router.get("/questions", (req, res) => {
     });
 });
 
+router.get("/battle/questions", (req,res) => {
+  db.Question.findAll({
+    attributes: [
+      "id",
+      "question",
+      "optionA",
+      "optionB",
+      "optionC",
+      "optionD",
+      "answer",
+    ],
+  })
+    .then((allQuestions) => {
+      console.log(allQuestions);
+      res.json(allQuestions);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+router.get("/battle/characters", (req,res) => {
+  db.Character.findAll({
+    attributes: [
+      "name",
+      "health",
+    ],
+  })
+    .then((allCharacters) => {
+      console.log(allCharacters);
+      res.json(allCharacters);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 router.get("/questions/:id/edit", (req, res) => {
   db.Question.findOne({
     where: {
