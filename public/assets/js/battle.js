@@ -16,6 +16,8 @@ $(document).ready(function () {
   const winModal = $("#winModal");
   const loseModal = $("#loseModal");
   const closeLoseModal = $("#closeLoseModal");
+  const roundModal = $("#roundModal");
+  const closeRoundModal = $("#closeRoundModal");
 
   //   JS Variables
   const queryURLQuestions = "/battle/questions";
@@ -96,6 +98,11 @@ $(document).ready(function () {
     window.location.replace("/");
   }
 
+  function exitRoundModal() {
+    roundModal.removeClass("modal is-active");
+    roundModal.addClass("modal");
+  }
+
   function hideModal() {
     battleModal.removeClass("modal is-active");
     battleModal.addClass("modal");
@@ -168,8 +175,8 @@ $(document).ready(function () {
     }
   }
   //Question Functions
-  
-    //Populate the Question Array in order to loop questions
+
+  //Populate the Question Array in order to loop questions
   function populateQuestionArray() {
     $.ajax({
       url: queryURLQuestions,
@@ -181,7 +188,7 @@ $(document).ready(function () {
     });
   }
 
-    //Array that consolidates answer choices to an array
+  //Array that consolidates answer choices to an array
   function updateQaARRAY() {
     qaArray = {
       question: questionArray[questionIndex].question,
@@ -255,9 +262,10 @@ $(document).ready(function () {
       if (opponent.health === 0) {
         opponentProgressBar.removeClass("is-warning");
         opponentIndex++;
-        animatedGif.addClass("is-hidden")
+        animatedGif.addClass("is-hidden");
         if (opponentIndex < 5) {
-          alert("You win this round");
+          // alert("You win this round");
+          roundModal.addClass("is-active");
           user.health = fullUserHealth;
           userProgressBar.attr("value", user.health);
           userProgressBar.removeClass("is-warning");
@@ -292,7 +300,6 @@ $(document).ready(function () {
         // alert("You LOST YOU SUCK");
         loseModal.removeClass("modal");
         loseModal.addClass("modal is-active");
-        
       } else {
         userProgressBar.attr("value", `${user.health}`);
         userProgressBar.removeClass("is-success");
@@ -308,13 +315,11 @@ $(document).ready(function () {
       // animatedGif.removeClass("is-hidden");
       // animatedGif.attr("src", `${incorrectImage}`);
       // console.log(answerValidation);
-      
-      
-    };
+    }
     // animatedGif.addClass("is-hidden");
     questionIndex++;
     populateQuestion(questionIndex);
-  };
+  }
   window.location.reload;
   onload();
 
@@ -323,6 +328,7 @@ $(document).ready(function () {
   startBttn.on("click", hideModal);
   closeWinModal.on("click", exitWinModal);
   closeLoseModal.on("click", exitLoseModal);
+  closeRoundModal.on("click", exitRoundModal);
 
   // END
 });
