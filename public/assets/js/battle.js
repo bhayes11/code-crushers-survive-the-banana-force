@@ -16,38 +16,38 @@ $(document).ready(function () {
   //   JS Variables
   const queryURLQuestions = "/battle/questions";
   const queryURLCharacters = "/battle/characters";
-  const correctImage = "/assets/correct.png"
-  const incorrectImage = "/assets/incorrect.png"
+  const correctImage = "/assets/correct.png";
+  const incorrectImage = "/assets/incorrect.png";
   const fullUserHealth = 100;
   let questionIndex = 0;
   let opponentIndex = 0;
   let answerValidation;
   let opponent;
-  let user={};
+  let user = {};
   let questionArray = [];
   let charactersArray = [];
   let opponentsArray = [];
   let qaArray = {};
   const loadArray = [
-      qaSection,
-      questionSection,
-      answerChoices,
-      userProgressBar,
-      userImage,
-      audio,
-    ];
-    const onloadClearArray = [
-      qaSection,
-      questionSection,
-      answerChoices,
-      userProgressBar,
-      opponentProgressBar,
-      userImage,
-      animatedGif,
-      opponentImage,
-      audio,
-    ];
-  
+    qaSection,
+    questionSection,
+    answerChoices,
+    userProgressBar,
+    userImage,
+    audio,
+  ];
+  const onloadClearArray = [
+    qaSection,
+    questionSection,
+    answerChoices,
+    userProgressBar,
+    opponentProgressBar,
+    userImage,
+    animatedGif,
+    opponentImage,
+    audio,
+  ];
+
   const charImageArray = [
     "/assets/lauren.png",
     "/assets/peter.png",
@@ -56,8 +56,7 @@ $(document).ready(function () {
     "/assets/jonathan.png",
     "/assets/user.png",
   ];
-  
- 
+
   // FUNCTION DEFINITION
 
   //ON LOAD
@@ -101,12 +100,12 @@ $(document).ready(function () {
   }
 
   //Character Functions
-  function createUser(){
-      console.log(charactersArray);
-      user = charactersArray[5];
-      user.health = fullUserHealth;
-      console.log(user);
-  };
+  function createUser() {
+    console.log(charactersArray);
+    user = charactersArray[5];
+    user.health = fullUserHealth;
+    console.log(user);
+  }
   function populateCharactersArray() {
     $.ajax({
       url: queryURLCharacters,
@@ -121,12 +120,11 @@ $(document).ready(function () {
   function mergeImageNames() {
     for (var i = 0; i < charactersArray.length; i++) {
       charactersArray[i].imgSrc = charImageArray[i];
-    };
+    }
     createUser();
   }
 
   function assignOpponentArray() {
-      
     for (var i = 0; i < charactersArray.length - 1; i++) {
       opponentsArray[i] = charactersArray[i];
     }
@@ -134,9 +132,7 @@ $(document).ready(function () {
     console.log(opponentsArray);
   }
   // Populate Characters
- 
- 
- 
+
   function populateOpponents(index) {
     opponentSection.empty();
     opponentProgressBar.removeClass("is-hidden");
@@ -235,54 +231,58 @@ $(document).ready(function () {
       answerChoices.empty();
       answerChoices.append(answerValidation);
       animatedGif.removeClass("is-hidden");
-      animatedGif.attr("src",`${correctImage}`);
-      
+      animatedGif.attr("src", `${correctImage}`);
+
       console.log(answerValidation);
       opponent.health -= 50;
-      if(opponent.health===0){
+      if (opponent.health === 0) {
         opponentProgressBar.removeClass("is-warning");
-        opponentIndex ++;
-        alert("You win this round");
+        opponentIndex++;
+        if (opponentIndex < 5) {
+          alert("You win this round");
           user.health = fullUserHealth;
           userProgressBar.attr("value", user.health);
           userProgressBar.removeClass("is-warning");
-          userProgressBar.addClass("is-success")
+          userProgressBar.addClass("is-success");
           console.log(opponent.health);
           hideModal();
-      }else{
-        opponentProgressBar.attr("value", `${opponentsArray[opponentIndex].health}`);
+        } else {
+          alert("YOU WON THE GAME. YOU ARE A CODING BEAST!!");
+        }
+      } else {
+        opponentProgressBar.attr(
+          "value",
+          `${opponentsArray[opponentIndex].health}`
+        );
         opponentProgressBar.removeClass("is-success");
         opponentProgressBar.addClass("is-warning");
         console.log(opponent.health);
-      };
-     
-      
+      }
     } else {
       answerValidation = "Wrong";
       answerChoices.empty();
       answerChoices.append(answerValidation);
       animatedGif.removeClass("is-hidden");
-      animatedGif.attr("src",`${incorrectImage}`);
+      animatedGif.attr("src", `${incorrectImage}`);
       console.log(answerValidation);
-      user.health -= 50
-      if(user.health===0){
-          userProgressBar.removeClass("is-warning");
-          userProgressBar.attr("value", `${user.health}`);
-          userImage.empty();
-          userImage.attr(`src="/assets/minion_lose.png"`)
-          alert("You LOST YOU SUCK");
-
-    }else{
+      user.health -= 50;
+      if (user.health === 0) {
+        userProgressBar.removeClass("is-warning");
+        userProgressBar.attr("value", `${user.health}`);
+        userImage.empty();
+        userImage.attr(`src="/assets/minion_lose.png"`);
+        alert("You LOST YOU SUCK");
+      } else {
         userProgressBar.attr("value", `${user.health}`);
         userProgressBar.removeClass("is-success");
         userProgressBar.addClass("is-warning");
         console.log(user.health);
-    };
-  };
+      }
+    }
     animatedGif.addClass("is-hidden");
     questionIndex++;
     populateQuestion(questionIndex);
-  };
+  }
 
   onload();
 
