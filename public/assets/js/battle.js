@@ -12,6 +12,10 @@ $(document).ready(function () {
   const audio = $("audio");
   const startBttn = $("#startBttn");
   const battleModal = $("#modal");
+  const closeWinModal = $("#closeWinModal");
+  const winModal = $("#winModal");
+  const loseModal = $("#loseModal");
+  const closeLoseModal = $("closeLoseModal");
 
   //   JS Variables
   const queryURLQuestions = "/battle/questions";
@@ -79,6 +83,18 @@ $(document).ready(function () {
   }
 
   // Modal Functions
+
+  function exitWinModal() {
+    winModal.removeClass("modal is-active");
+    winModal.addClass("modal");
+    window.location.replace("/");
+  }
+
+  function exitLoseModal() {
+    loseModal.removeClass("modal is-active");
+    loseModal.addClass("modal");
+    window.location.replace("/");
+  }
 
   function hideModal() {
     battleModal.removeClass("modal is-active");
@@ -247,7 +263,8 @@ $(document).ready(function () {
           console.log(opponent.health);
           hideModal();
         } else {
-          alert("YOU WON THE GAME. YOU ARE A CODING BEAST!!");
+          // alert("YOU WON THE GAME. YOU ARE A CODING BEAST!!");
+          winModal.addClass("is-active");
         }
       } else {
         opponentProgressBar.attr(
@@ -271,7 +288,9 @@ $(document).ready(function () {
         userProgressBar.attr("value", `${user.health}`);
         userImage.empty();
         userImage.attr(`src="/assets/minion_lose.png"`);
-        alert("You LOST YOU SUCK");
+        // alert("You LOST YOU SUCK");
+        // closeModal.removeClass("modal");
+        // closeModal.addClass("modal is-active");
       } else {
         userProgressBar.attr("value", `${user.health}`);
         userProgressBar.removeClass("is-success");
@@ -289,6 +308,8 @@ $(document).ready(function () {
   // Event Listener
   answerChoices.on("click", checkAnswer);
   startBttn.on("click", hideModal);
+  closeWinModal.on("click", exitWinModal);
+  // closeLoseModal.on("click", exitLoseModal);
 
   // END
 });
