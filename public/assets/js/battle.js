@@ -144,7 +144,7 @@ $(document).ready(function () {
     if (opponentIndex > 4) {
       alert("You win");
     } else {
-      let opponentImage = `<img id="opponentImage" class="minion" src=${opponentsArray[index].imgSrc} alt= "${opponentsArray[index].name}">`;
+      let opponentImage = `<img id="opponentImage" class="minion animate__animated animate__fadeInUp" src=${opponentsArray[index].imgSrc} alt= "${opponentsArray[index].name}">`;
       console.log(opponentImage);
       opponent = opponentsArray[index];
       console.log(opponent);

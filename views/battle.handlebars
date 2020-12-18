@@ -1,22 +1,20 @@
 {{> navbar}}
 {{!-- Modal to start --}}
 <div id="modal" class="modal">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">STARTING GAME!</p>
-    </header>
-    <section class="modal-card-body">
-      <!-- Content ... -->
-     GET READY!!!
-    </section>
-    <footer class="modal-card-foot">
-      <button id="startBttn" class="button is-success">Start</button>
-    </footer>
-  </div>
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">STARTING GAME!</p>
+        </header>
+        <section class="modal-card-body">
+            <!-- Content ... -->
+            GET READY!!!
+        </section>
+        <footer class="modal-card-foot">
+            <button id="startBttn" class="button is-success">Start</button>
+        </footer>
+    </div>
 </div>
-
-
 <div class="container" id="landing-section">
     <div class="columns" id="qaSection">
         <div class="column">
@@ -30,6 +28,10 @@
             </div>
         </div>
     </div>
+    {{!-- column for space --}}
+    <div class="columns">
+        <div class="column is-full prog-above"></div>
+    </div>
     <div class="columns">
         {{!-- <div class="column">
             <p class="tile placeholder"></p>
@@ -38,23 +40,29 @@
                 class="progress is-success is-large" value="100" max="100"></progress></div>
 
         <div class="column is-flex is-horizontal-center is-multiline"></div>
-        <div class="column is-flex is-horizontal-center is-multiline"><progress id="opponentProgressBar" class="progress is-large"
-                value="25" max="100"></progress></div>
+        <div class="column is-flex is-horizontal-center is-multiline"><progress id="opponentProgressBar"
+                class="progress is-large" value="25" max="100"></progress></div>
+    </div>
+    {{!-- column for space --}}
+    <div class="columns">
+        <div class="column is-full prog-bottom"></div>
     </div>
     <div class="columns">
         <div class="column is-flex is-horizontal-center is-multiline">
-            <img src="/assets/user.png" id="userImage" class="minion" alt="raaarrrr" />
+            <img src="/assets/user.png" id="userImage" class="my-element minion animate__animated animate__bounce"
+                alt="raaarrrr" />{{!-- changed 12/17 --}}
         </div>
         <div class="column is-flex is-horizontal-center is-multiline ">
             <img id="animatedGif" src="" alt="" class="is-hidden" />
         </div>
-        <div class="column is-flex is-horizontal-center is-multiline" id="opponentSection" >
+        <div class="column is-flex is-horizontal-center is-multiline" id="opponentSection">
             <img id="opponentImage" src="/assets/minion_no_armor.png" class="minion" alt="raaarrrr" />
         </div>
     </div>
 </div>
 {{!-- MUSIC! https://www.fesliyanstudios.com/royalty-free-music/downloads-c/action-music/9 --}}
-{{!-- Auto Play Music: https://stackoverflow.com/questions/14356956/playing-audio-after-the-page-loads-in-html/14357365 --}}
+{{!-- Auto Play Music: https://stackoverflow.com/questions/14356956/playing-audio-after-the-page-loads-in-html/14357365
+--}}
 <audio controls loop>
     <source src="/assets/intro1_long.wav" autoplay="autoplay" type="audio/wav">
     Your browser does not support the audio element.
