@@ -20,9 +20,7 @@ router.get("/questions", (req, res) => {
     ],
   })
     .then((allQuestions) => {
-      console.log(allQuestions);
       res.render("admin", { questions: allQuestions });
-      // res.json(allQuestions);
     })
     .catch((err) => {
       console.log(err);
@@ -42,7 +40,6 @@ router.get("/battle/questions", (req,res) => {
     ],
   })
     .then((allQuestions) => {
-      console.log(allQuestions);
       res.json(allQuestions);
     })
     .catch((err) => {
@@ -57,7 +54,6 @@ router.get("/battle/characters", (req,res) => {
     ],
   })
     .then((allCharacters) => {
-      console.log(allCharacters);
       res.json(allCharacters);
     })
     .catch((err) => {
@@ -72,7 +68,6 @@ router.get("/questions/:id/edit", (req, res) => {
     },
   })
     .then((foundQuestion) => {
-      console.log(foundQuestion.question);
       res.json({
         question: foundQuestion.question,
         optionA: foundQuestion.optionA,
@@ -82,7 +77,6 @@ router.get("/questions/:id/edit", (req, res) => {
         answer: foundQuestion.answer,
         id: foundQuestion.id,
       });
-      console.log(foundQuestion.answer);
     })
     .catch((err) => {
       console.log(err);
@@ -120,7 +114,6 @@ router.delete("/api/questions/:id", (req, res) => {
     },
   })
     .then((response) => {
-      console.log(response);
       res.json(response);
     })
     .catch((err) => {
