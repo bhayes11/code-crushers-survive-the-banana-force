@@ -59,23 +59,24 @@
             <img id="opponentImage" src="/assets/minion_no_armor.png" class="minion" alt="raaarrrr" />
         </div>
     </div>
+    <div class="columns">
+        <div class="column is-flex is-horizontal-center is-multiline">
+
+        </div>
+        <div class="column is-flex is-horizontal-center is-multiline ">
+            {{!-- MUSIC! https://www.fesliyanstudios.com/royalty-free-music/downloads-c/action-music/9 --}}
+            {{!-- Auto Play Music: https://stackoverflow.com/questions/14356956/playing-audio-after-the-page-loads-in-html/14357365--}}
+            <audio controls autoplay volume="0.0025" loop>
+                <source src="/assets/StartMusic.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div class="column is-flex is-horizontal-center is-multiline" id="opponentSection" >
+
+        </div>
+    </div>
 </div>
-{{!-- MUSIC! https://www.fesliyanstudios.com/royalty-free-music/downloads-c/action-music/9 --}}
-{{!-- Auto Play Music: https://stackoverflow.com/questions/14356956/playing-audio-after-the-page-loads-in-html/14357365
---}}
-<audio controls loop>
-    <source src="/assets/intro1_long.wav" autoplay="autoplay" type="audio/wav">
-    Your browser does not support the audio element.
-</audio>
-{{!-- Jonathan Boss Music --}}
-<audio controls loop>
-    <source src="/assets/FinalBoss.mp3" autoplay="autoplay" type="audio/mp3">
-    Your browser does not support the audio element.
-</audio>
-{{!-- Start Screen music --}}
-<audio controls loop>
-    <source src="/assets/StartMusic.mp3" autoplay="autoplay" type="audio/mp3">
-    Your browser does not support the audio element.
-</audio>
+
+
 
 <script type="text/javascript" src="/assets/js/battle.js"></script>
