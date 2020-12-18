@@ -65,16 +65,37 @@
         </div>
         <div class="column is-flex is-horizontal-center is-multiline ">
             {{!-- MUSIC! https://www.fesliyanstudios.com/royalty-free-music/downloads-c/action-music/9 --}}
-            {{!-- Auto Play Music: https://stackoverflow.com/questions/14356956/playing-audio-after-the-page-loads-in-html/14357365--}}
+            {{!-- Auto Play Music:
+            https://stackoverflow.com/questions/14356956/playing-audio-after-the-page-loads-in-html/14357365--}}
             <audio controls autoplay volume="0.0025" loop>
                 <source src="/assets/StartMusic.mp3" type="audio/mp3">
                 Your browser does not support the audio element.
             </audio>
         </div>
-        <div class="column is-flex is-horizontal-center is-multiline" id="opponentSection" >
+        <div class="column is-flex is-horizontal-center is-multiline" id="opponentSection">
 
         </div>
     </div>
+</div>
+
+<div class="modal" id="winModal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <p class="image is-4by3">
+            <img src="/assets/minion_win.png" alt="">
+        </p>
+    </div>
+    <button class="modal-close is-large" id="closeWinModal" aria-label="close"></button>
+</div>
+
+<div class="modal" id="loseModal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <p class="image is-4by3">
+            <img src="/assets/minion_lose.png" alt="">
+        </p>
+    </div>
+    <button class="modal-close is-large" id="closeLoseModal" aria-label="close"></button>
 </div>
 
 
