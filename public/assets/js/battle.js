@@ -15,7 +15,7 @@ $(document).ready(function () {
   const closeWinModal = $("#closeWinModal");
   const winModal = $("#winModal");
   const loseModal = $("#loseModal");
-  const closeLoseModal = $("closeLoseModal");
+  const closeLoseModal = $("#closeLoseModal");
 
   //   JS Variables
   const queryURLQuestions = "/battle/questions";
@@ -168,7 +168,8 @@ $(document).ready(function () {
     }
   }
   //Question Functions
-  //Populate the Question Array in order to loop questions
+  
+    //Populate the Question Array in order to loop questions
   function populateQuestionArray() {
     $.ajax({
       url: queryURLQuestions,
@@ -180,7 +181,7 @@ $(document).ready(function () {
     });
   }
 
-  //Array that consolidates answer choices to an array
+    //Array that consolidates answer choices to an array
   function updateQaARRAY() {
     qaArray = {
       question: questionArray[questionIndex].question,
@@ -238,7 +239,7 @@ $(document).ready(function () {
   function checkAnswer(event) {
     let answerIndex = event.target.getAttribute("data-index");
     event.preventDefault();
-
+    animatedGif.addClass("is-hidden");
     if (
       event.target.matches("button") &&
       qaArray.choices[answerIndex] === questionArray[questionIndex].answer
@@ -254,6 +255,7 @@ $(document).ready(function () {
       if (opponent.health === 0) {
         opponentProgressBar.removeClass("is-warning");
         opponentIndex++;
+        animatedGif.addClass("is-hidden")
         if (opponentIndex < 5) {
           alert("You win this round");
           user.health = fullUserHealth;
@@ -277,39 +279,50 @@ $(document).ready(function () {
       }
     } else {
       answerValidation = "Wrong";
-      answerChoices.empty();
-      answerChoices.append(answerValidation);
-      animatedGif.removeClass("is-hidden");
-      animatedGif.attr("src", `${incorrectImage}`);
-      console.log(answerValidation);
       user.health -= 50;
       if (user.health === 0) {
         userProgressBar.removeClass("is-warning");
         userProgressBar.attr("value", `${user.health}`);
         userImage.empty();
         userImage.attr(`src="/assets/minion_lose.png"`);
+        answerChoices.empty();
+        answerChoices.append(answerValidation);
+        animatedGif.removeClass("is-hidden");
+        animatedGif.attr("src", `${incorrectImage}`);
         // alert("You LOST YOU SUCK");
-        // closeModal.removeClass("modal");
-        // closeModal.addClass("modal is-active");
+        loseModal.removeClass("modal");
+        loseModal.addClass("modal is-active");
+        
       } else {
         userProgressBar.attr("value", `${user.health}`);
         userProgressBar.removeClass("is-success");
         userProgressBar.addClass("is-warning");
         console.log(user.health);
+        answerChoices.empty();
+        answerChoices.append(answerValidation);
+        animatedGif.removeClass("is-hidden");
+        animatedGif.attr("src", `${incorrectImage}`);
       }
-    }
-    animatedGif.addClass("is-hidden");
+      // answerChoices.empty();
+      // answerChoices.append(answerValidation);
+      // animatedGif.removeClass("is-hidden");
+      // animatedGif.attr("src", `${incorrectImage}`);
+      // console.log(answerValidation);
+      
+      
+    };
+    // animatedGif.addClass("is-hidden");
     questionIndex++;
     populateQuestion(questionIndex);
-  }
-
+  };
+  window.location.reload;
   onload();
 
   // Event Listener
   answerChoices.on("click", checkAnswer);
   startBttn.on("click", hideModal);
   closeWinModal.on("click", exitWinModal);
-  // closeLoseModal.on("click", exitLoseModal);
+  closeLoseModal.on("click", exitLoseModal);
 
   // END
 });
