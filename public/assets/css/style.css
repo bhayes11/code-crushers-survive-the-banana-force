@@ -20,3 +20,7 @@ section {
 .color-one {
   color: rgb(224, 155, 67);
 }
+
+.forever {
+  animation-iteration-count: infinite;
+}
