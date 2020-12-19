@@ -1,6 +1,4 @@
-# project-two
-
-Team Krypton's Code Crushers: Survive The TA's app
+# Team Krypton's Code Crushers: Survive The Banana Force
 
 ## Table of Contents
 
@@ -73,13 +71,11 @@ Animate.css Library
 
 ## Contributing
 
-<span style="color:red">Update with team name and final commits number.</span>
-
-| **Commits** | **Contributor** |
-| 100 | [GaTech55](https://github.com/GaTech55)|
-| 100 | [GaTech55](https://github.com/GaTech55)|
-| 100 | [GaTech55](https://github.com/GaTech55)|
-| 100 | [GaTech55](https://github.com/GaTech55)|
+| **Contributor** |
+[David Brown](https://github.com/GaTech55)|
+[Brian Hayes](https://github.com/bhayes11)|
+[Harshanan Saddanathan](https://github.com/hsaddanathan)|
+[Bhargava Patel](https://github.com/Bhargava82)|
 
 ## Copyright
 
